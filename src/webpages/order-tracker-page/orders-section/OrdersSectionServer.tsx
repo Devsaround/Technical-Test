@@ -1,13 +1,8 @@
 import PageHeaderClient from '@/webpages/shared/components/page-header/PageHeaderClient';
 import { Skeleton } from 'antd';
-import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import DynamicOrdersSectionClient from './DynamicOrdersSectionClient';
 import styles from './OrdersSectionServer.module.css';
-
-const DynamicOrdersSectionClient = dynamic(
-  () => import('./OrdersSectionClient'),
-  { ssr: false }
-);
 
 async function OrdersSectionServer() {
   await new Promise((resolve) => setTimeout(resolve, 1000));
