@@ -1,14 +1,9 @@
 import { EntityDriversService } from '@/services/order-tracker/drivers/EntityDriversService';
 import PageHeaderClient from '@/webpages/shared/components/page-header/PageHeaderClient';
 import { Skeleton } from 'antd';
-import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import styles from './DriversSectionServer.module.css';
-
-const DynamicDriversSectionClient = dynamic(
-  () => import('./DriversSectionClient'),
-  { ssr: false }
-);
+import DynamicDriversSectionClient from './DynamicDriversSectionClient';
 
 async function DriversSectionServer() {
   await new Promise((resolve) => setTimeout(resolve, 1000));
